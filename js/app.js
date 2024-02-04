@@ -7,6 +7,16 @@ const loadPhone = async(searchText) =>{
 const displayPhone = phone =>{
     const phoneContainer = document.getElementById('phone-container');
     phoneContainer.innerText = ' ';
+    //display 20 phones
+    phone = phone.slice(0,20);
+    // display no phones found
+    const noPhone = document.getElementById('no-found-message');
+    if(phone.length === 0){
+       noPhone.classList.remove('d-none');
+    }
+    else{
+      noPhone.classList.add('d-none');
+    }
     phone.forEach(phone => {
        const phoneDiv = document.createElement('div');
        phoneDiv.classList.add('col');
